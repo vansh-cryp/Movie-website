@@ -1,4 +1,4 @@
-function MovieCard(movie){
+function MovieCard({movie}){
 
     function onLike(){
         alert("clicked");
@@ -7,7 +7,7 @@ function MovieCard(movie){
         <div className="movie-poster">
             <img src={movie.url} alt={movie.title}/>
             <div className="movie-overlay">
-                <button className="favorite-button" onClick={onLike}></button>
+                <button className="favorite-button" onClick={onLike}>hello</button>
             </div>
         </div>
         <div className="movie-info">
