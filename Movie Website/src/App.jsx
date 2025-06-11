@@ -1,9 +1,8 @@
-import MovieCard from './components/MovieCard';
 import './App.css'
+import Home from './pages/Home';
 function App() {
-
   return (<>
-    <MovieCard movie={{title:"Bloodshot", release_year:"2024"}}/>
+  <Home/>
   </>);
 }
 
