@@ -1,13 +1,14 @@
 import { useState } from "react";
+import "../css/Home.css";
 import MovieCard from "../components/MovieCard";
 function Home(){
     const [searchQuery,setSearchQuery] = useState("");
 
     const movies = [
-        {id:"1", title:"Life of Pi",release_date:"2020"},
-        {id:"2", title:"The Matrix",release_date:"1999"},
-        {id:"3", title:"Good Will hunting",release_date:"1989"}
-    ];
+        {id:"1", title:"Life of Pi",release_year:"2020"},
+        {id:"2", title:"The Matrix",release_year:"1999"},
+        {id:"3", title:"Good Will hunting",release_year:"1989"}
+    ]; 
 
 const handleSearh = (e)=>{
     e.preventDefault();
