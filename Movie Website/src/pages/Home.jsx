@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "../css/Home.css";
 import MovieCard from "../components/MovieCard";
+import { searchMovies,getPopularMovies } from "../services/api";
 function Home(){
     const [searchQuery,setSearchQuery] = useState("");
-
-    const movies = [
-        {id:"1", title:"Life of Pi",release_year:"2020"},
-        {id:"2", title:"The Matrix",release_year:"1999"},
-        {id:"3", title:"Good Will hunting",release_year:"1989"}
-    ]; 
+    const[movies,setMovies] = useState([]);
+    const[error,setError] = useState(null);
+    const[loading,setLoading] = useState(true);
+    useEffect(()=>{
+        const loadPopularMovies = async () =>{
+            try{
+                const popularMovies = await getPopularMovies();
+                 setMovies(popularMovies);
+            }catch(err){
+                console.log(err);
+                setError("Failed to load Movies...")
+            }finally{
+                setLoading(false)
+            }
+        }
+        loadPopularMovies();
+    },[]);
 
 const handleSearh = (e)=>{
     e.preventDefault();
